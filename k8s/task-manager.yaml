@@ -1,0 +1,93 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: devops-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task-manager
+  namespace: devops-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: task-manager
+  template:
+    metadata:
+      labels:
+        app: task-manager
+    spec:
+      containers:
+        - name: task-manager
+          image: task-manager:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://$(DB_HOST):$(DB_PORT)/$(DB_NAME)
+
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: task-manager-config
+                  key: DB_USER
+
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: task-manager-secret
+                  key: DB_PASSWORD
+
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: task-manager-config
+                  key: DB_HOST
+
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: task-manager-config
+                  key: DB_PORT
+
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: task-manager-config
+                  key: DB_NAME
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: task-manager-config
+  namespace: devops-app
+data:
+  DB_HOST: "task-db"
+  DB_PORT: "3306"
+  DB_NAME: "taskmanager"
+  DB_USER: "taskuser"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: task-manager-secret
+  namespace: devops-app
+type: Opaque
+stringData:
+  DB_PASSWORD: "taskpass"
+  MYSQL_ROOT_PASSWORD: "root"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: task-manager-service
+  namespace: devops-app
+spec:
+  selector:
+    app: task-manager
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: NodePort

@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: task-db
+  template:
+    metadata:
+      labels:
+        app: task-db
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: task-manager-secret
+                  key: MYSQL_ROOT_PASSWORD
+
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: task-manager-config
+                  key: DB_NAME
+
+            - name: MYSQL_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: task-manager-config
+                  key: DB_USER
+
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: task-manager-secret
+                  key: DB_PASSWORD
+      volumes:
+        - name: mysql-storage
+          persistentVolumeClaim:
+            claimName: task-db-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: task-db
+spec:
+  selector:
+    app: task-db
+  ports:
+    - port: 3306
+      targetPort: 3306
+  type: ClusterIP
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-db-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

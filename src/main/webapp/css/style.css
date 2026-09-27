@@ -1,0 +1,744 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+background: #f5f7fb;
+color: #1f2937;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar {
+height: 70px;
+background: #111827;
+color: white;
+
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+padding: 0 7%;
+
+
+}
+
+.logo {
+font-size: 22px;
+font-weight: bold;
+}
+
+.nav-links {
+display: flex;
+align-items: center;
+gap: 25px;
+}
+
+.nav-links a {
+color: white;
+text-decoration: none;
+}
+
+.nav-links a:hover {
+opacity: 0.8;
+}
+
+.welcome {
+color: #d1d5db;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+.primary-button,
+.secondary-button,
+.success-button,
+.danger-button,
+.nav-button {
+display: inline-block;
+
+  
+border: none;
+border-radius: 7px;
+
+padding: 11px 20px;
+
+text-decoration: none;
+
+cursor: pointer;
+
+font-size: 14px;
+font-weight: 600;
+
+
+}
+
+.primary-button {
+background: #2563eb;
+color: white;
+}
+
+.primary-button:hover {
+background: #1d4ed8;
+}
+
+.secondary-button {
+background: #e5e7eb;
+color: #111827;
+}
+
+.success-button {
+background: #16a34a;
+color: white;
+}
+
+.danger-button {
+background: #dc2626;
+color: white;
+}
+
+.nav-button {
+background: #2563eb;
+color: white !important;
+}
+
+.full-width {
+width: 100%;
+}
+
+/* =========================
+HOME PAGE
+========================= */
+
+.hero {
+min-height: 520px;
+
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+text-align: center;
+
+padding: 60px 20px;
+
+background: linear-gradient(
+    135deg,
+    #eff6ff,
+    #eef2ff
+);
+
+
+}
+
+.hero-content {
+max-width: 750px;
+}
+
+.hero h1 {
+font-size: 50px;
+line-height: 1.15;
+margin-bottom: 25px;
+}
+
+.hero h1 span {
+color: #2563eb;
+}
+
+.hero p {
+font-size: 18px;
+line-height: 1.7;
+color: #6b7280;
+margin-bottom: 35px;
+}
+
+.hero-buttons {
+display: flex;
+justify-content: center;
+gap: 15px;
+}
+
+/* =========================
+FEATURES
+========================= */
+
+.features {
+max-width: 1100px;
+
+
+margin: 60px auto;
+
+padding: 0 20px;
+
+display: grid;
+
+grid-template-columns:
+    repeat(3, 1fr);
+
+gap: 25px;
+
+
+}
+
+.feature-card {
+background: white;
+
+
+padding: 30px;
+
+border-radius: 12px;
+
+box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.06);
+
+
+}
+
+.feature-card h3 {
+margin-bottom: 15px;
+}
+
+.feature-card p {
+color: #6b7280;
+line-height: 1.6;
+}
+
+/* =========================
+AUTH PAGES
+========================= */
+
+.auth-page {
+min-height: 100vh;
+
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+background: #f3f4f6;
+
+
+}
+
+.auth-container {
+width: 100%;
+max-width: 430px;
+
+
+padding: 20px;
+
+}
+
+.auth-card {
+background: white;
+
+
+padding: 40px;
+
+border-radius: 14px;
+
+box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.08);
+
+}
+
+.auth-card h1 {
+text-align: center;
+margin-bottom: 10px;
+}
+
+.auth-subtitle {
+text-align: center;
+color: #6b7280;
+margin-bottom: 30px;
+}
+
+/* =========================
+FORMS
+========================= */
+
+.form-group {
+margin-bottom: 20px;
+}
+
+.form-group label {
+display: block;
+
+
+margin-bottom: 8px;
+
+font-weight: 600;
+
+
+}
+
+.form-group input,
+.form-group textarea {
+width: 100%;
+
+
+padding: 12px;
+
+border: 1px solid #d1d5db;
+
+border-radius: 7px;
+
+font-size: 15px;
+
+outline: none;
+
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+border-color: #2563eb;
+}
+
+.form-group textarea {
+min-height: 110px;
+
+
+resize: vertical;
+
+
+}
+
+.auth-footer {
+text-align: center;
+
+
+margin-top: 25px;
+
+color: #6b7280;
+
+
+}
+
+.auth-footer a {
+color: #2563eb;
+text-decoration: none;
+}
+
+.back-link {
+text-align: center;
+margin-top: 20px;
+}
+
+.back-link a {
+color: #6b7280;
+text-decoration: none;
+}
+
+/* =========================
+MESSAGES
+========================= */
+
+.error-message {
+background: #fee2e2;
+
+color: #991b1b;
+
+padding: 12px;
+
+border-radius: 7px;
+
+margin-bottom: 20px;
+
+text-align: center;
+
+
+}
+
+.success-message {
+background: #dcfce7;
+
+
+color: #166534;
+
+padding: 12px;
+
+border-radius: 7px;
+
+margin-bottom: 20px;
+
+text-align: center;
+
+
+}
+
+/* =========================
+DASHBOARD
+========================= */
+
+.dashboard-container,
+.tasks-container {
+max-width: 1100px;
+
+
+margin: 50px auto;
+
+padding: 0 20px;
+
+
+}
+
+.dashboard-header,
+.tasks-header {
+display: flex;
+
+
+align-items: center;
+
+justify-content: space-between;
+
+margin-bottom: 35px;
+
+}
+
+.dashboard-header h1,
+.tasks-header h1 {
+font-size: 34px;
+
+
+margin-bottom: 8px;
+
+
+}
+
+.dashboard-header p,
+.tasks-header p {
+color: #6b7280;
+}
+
+.dashboard-cards {
+display: grid;
+
+
+grid-template-columns:
+    repeat(3, 1fr);
+
+gap: 25px;
+
+
+}
+
+.dashboard-card {
+background: white;
+
+
+padding: 30px;
+
+border-radius: 12px;
+
+box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.06);
+
+
+}
+
+.dashboard-card h3 {
+margin: 15px 0;
+}
+
+.dashboard-card p {
+color: #6b7280;
+
+
+margin-bottom: 10px;
+
+line-height: 1.5;
+
+
+}
+
+.dashboard-card a {
+color: #2563eb;
+
+
+text-decoration: none;
+
+font-weight: 600;
+
+
+}
+
+.card-icon {
+font-size: 35px;
+}
+
+/* =========================
+TASKS
+========================= */
+
+.add-task-card {
+background: white;
+
+
+padding: 30px;
+
+border-radius: 12px;
+
+margin-bottom: 40px;
+
+box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.06);
+
+
+}
+
+.add-task-card h2 {
+margin-bottom: 25px;
+}
+
+.task-list h2 {
+margin-bottom: 20px;
+}
+
+.task-card {
+background: white;
+
+
+padding: 22px;
+
+border-radius: 10px;
+
+margin-bottom: 15px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+gap: 20px;
+
+box-shadow:
+    0 4px 15px
+    rgba(0, 0, 0, 0.05);
+
+
+}
+
+.task-content {
+flex: 1;
+}
+
+.task-content h3 {
+margin-bottom: 8px;
+}
+
+.task-content p {
+color: #6b7280;
+
+
+margin-bottom: 12px;
+
+}
+
+.status {
+display: inline-block;
+
+
+padding: 5px 10px;
+
+border-radius: 20px;
+
+font-size: 12px;
+
+font-weight: bold;
+
+
+}
+
+.status.pending {
+background: #fef3c7;
+
+color: #92400e;
+
+
+}
+
+.status.completed {
+background: #dcfce7;
+
+
+color: #166534;
+
+
+}
+
+.task-actions {
+display: flex;
+
+
+gap: 10px;
+
+
+}
+
+.task-actions form {
+margin: 0;
+}
+
+.empty-state {
+background: white;
+
+
+padding: 40px;
+
+text-align: center;
+
+border-radius: 10px;
+
+color: #6b7280;
+ 
+
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer {
+text-align: center;
+
+  
+padding: 30px;
+
+color: #6b7280;
+  
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  
+.features,
+.dashboard-cards {
+    grid-template-columns: 1fr;
+}
+
+.hero h1 {
+    font-size: 38px;
+}
+
+.dashboard-header,
+.tasks-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+.task-card {
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.navbar {
+    padding: 0 20px;
+}
+
+.nav-links {
+    gap: 12px;
+}
+  
+
+}
+/* ============================= */
+/* DEVOPS JOURNEY */
+/* ============================= */
+
+.journey-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #999;
+}
+
+.journey-card.completed {
+    border-left-color: #22c55e;
+}
+
+.journey-card.docker-card {
+    border-left-color: #2496ed;
+}
+
+.journey-day {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.journey-card h2 {
+    margin-bottom: 10px;
+}
+
+.journey-card ul {
+    list-style: none;
+    padding: 0;
+    line-height: 2;
+}
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.completed-status {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.upcoming-status {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.journey-progress {
+    margin-bottom: 25px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 25px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    background: #2563eb;
+}
